@@ -1,0 +1,27 @@
+{
+  "name": "branch-slug",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "bslug": "index.js"
+  },
+  "scripts": {
+    "test": "standard"
+  },
+  "author": "Danilo Prates <daniloprates@gmail.com> (https://github.com/daniloprates)",
+  "license": "MIT",
+  "dependencies": {
+    "clipboardy": "^1.2.3",
+    "copy-to-clipboard": "^3.0.8",
+    "slug": "^0.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniloprates/branch-slug.git"
+  },
+  "bugs": {
+    "url": "https://github.com/daniloprates/branch-slug/issues"
+  },
+  "homepage": "https://github.com/daniloprates/branch-slug#readme"
+}
