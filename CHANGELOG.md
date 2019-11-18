@@ -5,7 +5,7 @@ Changelog
 
 ### Fixes
 
-- Updated README.md
+- Updated README.md ([PR 2](https://github.com/daniloprates/branch-slug/pull/2))
 
 ## 1.2.0
 
