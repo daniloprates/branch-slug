@@ -1,6 +1,12 @@
 Changelog
 =========
 
+## 1.2.1
+
+### Fixes
+
+- Updated README.md
+
 ## 1.2.0
 
 ### Features
