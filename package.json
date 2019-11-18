@@ -1,10 +1,11 @@
 {
   "name": "branch-slug",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "",
   "main": "index.js",
   "bin": {
-    "bslug": "index.js"
+    "bslug": "index.js",
+    "branch-slug": "index.js"
   },
   "scripts": {
     "test": "standard"
@@ -12,7 +13,9 @@
   "author": "Danilo Prates <daniloprates@gmail.com> (https://github.com/daniloprates)",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^3.0.0",
     "clipboardy": "^1.2.3",
+    "commander": "^4.0.1",
     "copy-to-clipboard": "^3.0.8",
     "slug": "^0.9.3"
   },
