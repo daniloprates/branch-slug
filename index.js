@@ -5,20 +5,14 @@ var clipboardy = require('clipboardy');
 var chalk = require('chalk');
 
 program
-  .option('-g, --no-git', 'Don\'t include git command for new branch "git branch -m"')
-  .option('-c, --no-copy', 'Don\'t copy output to the clipboard')
-  .option('-t, --type <typet>', 'Branch type. The output is {type}/{description}');
-
-program.on('--help', function(){
-  console.log(`
-Types (-t {type}):
-  ${chalk.greenBright.bold('f')} or ${chalk.greenBright.bold('fe')} for ${chalk.blueBright('feature')}
-  ${chalk.greenBright.bold('fi')} for ${chalk.blueBright('fix')}
-  ${chalk.greenBright.bold('b')} for ${chalk.blueBright('bug')}
-  ${chalk.greenBright.bold('c')} for ${chalk.blueBright('chore')}
-  ${chalk.greenBright.bold('r')} for ${chalk.blueBright('release')}
-  or any other custom type e.g. ${chalk.greenBright.bold('special')}`)
-});
+  .option('-g, --no-git', chalk.magenta(`Don\'t include git command for new branch ${chalk.italic.bold('git branch -m')}`))
+  .option('-n, --no-copy', chalk.magenta('Don\'t copy output to the clipboard'))
+  .option('-f, --type-feature', chalk.greenBright(`Branch type: ${chalk.blueBright('feature')}. The output is ${chalk.blue.bold('feature/{description')}`))
+  .option('-i, --type-fix', chalk.greenBright(`Branch type: ${chalk.blueBright('fix')}. The output is ${chalk.blue.bold('fix/{description')}`))
+  .option('-b, --type-bug', chalk.greenBright(`Branch type: ${chalk.blueBright('bug')}. The output is ${chalk.blue.bold('bug/{description')}`))
+  .option('-c, --type-chore', chalk.greenBright(`Branch type: ${chalk.blueBright('chore')}. The output is ${chalk.blue.bold('chore/{description')}`))
+  .option('-r, --type-release', chalk.greenBright(`Branch type: ${chalk.blueBright('release')}. The output is ${chalk.blue.bold('release/{description')}`))
+  .option('-t, --type <type>', chalk.greenBright(`Custom branch type. The output is ${chalk.blue.bold('{type}/{description}')}`));
 
 program.parse(process.argv);
 
@@ -42,13 +36,16 @@ var args = process.argv
 
 var gitCommand = program.git ? 'git branch -m ' : '';
 var type = program.type || '';
-if (type === 'f' || type === 'fe') type = 'feature';
-else if (type === 'fi') type = 'fix';
-else if (type === 'b') type = 'bug';
-else if (type === 'c') type = 'chore';
-else if (type === 'r') type = 'release';
+if (program.typeFeature) type = 'feature';
+else if (program.typeFix) type = 'fix';
+else if (program.typeBug) type = 'bug';
+else if (program.typeChore) type = 'chore';
+else if (program.typeRelease) type = 'release';
 if (type) type+='/'
-var description = slug(args.join('-'), { lower: true });
+var description = slug(args.join('-'), { lower: true, remove: /[.]/g });
+if (!description) {
+  return
+}
 var copyOutput = gitCommand + type + description;
 var printOutput = chalk.greenBright.bold(copyOutput);
 if (program.copy) {

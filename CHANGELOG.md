@@ -1,6 +1,13 @@
 Changelog
 =========
 
+## 1.3.0
+
+### Features
+
+- Implemented branch types directly in the main options ([PR 5](https://github.com/daniloprates/branch-slug/pull/5))
+
+
 ## 1.2.1
 
 ### Fixes
