@@ -1,6 +1,13 @@
 Changelog
 =========
 
+## 1.3.1
+
+### Fixes
+
+- Changed app version ([PR 8](https://github.com/daniloprates/branch-slug/pull/8))
+- Fixed README ([PR 6](https://github.com/daniloprates/branch-slug/pull/6))
+
 ## 1.3.0
 
 ### Features
