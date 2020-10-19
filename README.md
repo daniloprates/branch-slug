@@ -40,7 +40,7 @@ $ bslug [ABC-456] Improve our workflow -c -n
 
 ## Options:
 
-```shell
+```
   -g, --no-git        Don't include git command for new branch git branch -m
   -n, --no-copy       Don't copy output to the clipboard
   -f, --type-feature  Branch type: feature. The output is feature/{description}
